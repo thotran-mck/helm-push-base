@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: helm-demo-deployment
+  labels:
+    app: helm-demo-deployment
+  namespace: test
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      pod: helm-demo-deployment
+  template:
+    metadata:
+      labels:
+        pod: helm-demo-deployment
+    spec:
+      containers:
+        - name: demo-pod
+          image: {{ .Values.image.repository }}
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}

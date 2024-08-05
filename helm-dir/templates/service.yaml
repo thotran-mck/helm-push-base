@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: helm-demo-deployment
+  name: helm-demo-deployment-svc
+  namespace: test
+spec:
+  ports:
+  - port: 8080
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    app: helm-demo-deployment
+  type: NodePort

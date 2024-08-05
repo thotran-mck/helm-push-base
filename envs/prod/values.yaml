@@ -1,0 +1,12 @@
+# Default values for helm-demo.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicaCount: 10
+
+image:
+  repository: kodekloud/webapp-color
+
+resources: 
+  requests:
+    memory: 500Mi
